@@ -1,14 +1,14 @@
 FROM node:latest
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
-COPY . /app
+COPY . /usr/src/app
 
-RUN cd Sms_Backend_Service
+RUN cd /SMS_BACKEND_WITHDEVOPS/Sms_Backend_Service
 
-RUN npm install
+RUN npm install --only=poduction
 
 CMD ["node","server.js"]
 
-EXPOSE 4000
+EXPOSE 8080
 

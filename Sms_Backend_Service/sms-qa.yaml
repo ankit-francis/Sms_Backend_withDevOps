@@ -1,3 +1,93 @@
-PORT: 4000
-NODE_ENV: "production"
-MONGOURL: "mongodb://localhost:27017/tendorsDb"
+   apiVersion: apps/v1
+   kind: Deployment
+   metadata:
+        name: Sms_Ws_Deployment
+   spec:
+        containers:
+            - name: sms_ws_container
+              image: sms_ws_image
+              imagePullPolicy: Always
+              port:
+                - containerPort: 4000
+              resources:
+                requests:
+                     cpu: 500m
+                limits:
+                     cpu: 2
+             env:
+                - name: MONGOURL
+                    value: "mongodb://localhost:27017/tendorsDb"
+                - name: NODE_ENV
+                    value: production
+                - name: PORT
+                    value: 4000
+              
+   
+   
+   
+   
+   #  apiVersion: v1
+    #  kind: Deployment
+    #  metadata:
+    #   name: sms_ws_deployment
+    #  spec:
+    #    template: # create pods using pod definition in this template
+    #      metadata:
+    #        labels:
+    #          app: Sms_Backend_App
+    #      spec:
+    #       containers:
+    #        - name: sms_ws_image
+    #          image: boxoffice.azurecr.io/smartlocker:latest-qa
+    #          imagePullPolicy: Always
+    #          resources:
+    #              requests:
+    #                  cpu: 500m
+    #              limits:
+    #                  cpu: 2
+    #          ports:
+    #            - containerPort: 4000
+    #          env:
+    #            - name: MONGOURL
+    #              value: "mongodb://localhost:27017/tendorsDb"
+    #            - name: NODE_ENV
+    #               value: "production"
+    #            - name: PORT
+    #               value: 4000
+    # #           - name: imageType
+    # #             value: '.png'
+    # #           - name: BASEURL
+    # #             value: https://cloudlocker-development.azurewebsites.net/api/
+    # #           - name: exelaEmailAccount
+    # #             value: 'No-Reply.smartlocker@exelaonline.com'
+    # #           - name: smtp_server
+    # #             value: 'email-smtp.us-east-1.amazonaws.com'
+    # #           - name: smtp_port
+    # #             value: 587
+    # #           - name: smtp_ssl
+    # #             value: false
+    # #           - name: smtp_user
+    # #             value: 'AKIAISZCVR452UPMYECA'
+    # #           - name: smtp_password
+    # #             value: 'AhULlnbCA9t5AtH0r93bdY6h+z6HFKy4dvsBqCksqKFr'
+    # #           - name : API_KEY
+    # #             value : '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'
+                
+    
+            
+    # # ---
+    # # apiVersion: v1
+    # # kind: Service
+    # # metadata:
+    # #   name: smartlocker-service
+    # # spec:
+    # # #  clusterIP: 10.100.100.110
+    # #   ports:
+    # #     - port: 3000
+    # #       targetPort: 3000
+    # #       nodePort: 30800
+    # #   type: NodePort
+    # #   selector:
+    # #     app: smartlocker-app
+    # # ---
+    
