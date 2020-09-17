@@ -8,5 +8,5 @@ RUN npm install --only=poduction
 
 CMD ["node","server.js"]
 
-EXPOSE 8080
+EXPOSE 4000
 
